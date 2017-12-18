@@ -62,6 +62,59 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
  size = max chunk size the server can comfortably deal with.
 
 ****************************/
+
+;(function( $ ) {
+	"use strict";
+
+	var formInputs = {};
+	var formFileInputs = {};
+
+	var defaults = {
+		maxChunkSize: 400000,
+		uploadHandler: null,
+		pauseButtonID: null,
+		resumeButtonID: null,
+		retryOnError: true,
+		waitAfterChunk: 500
+	}
+
+	var options;
+
+	$.fn.BitStreamer = function(options) {
+		return this.each(function() {
+			new BitStreamerv2(this, options);
+		});
+	};
+
+	var BitStreamerv2 = function(form, options) {
+		this.options = $.extend( true, {}, defaults, options );
+		this.form = form;
+		this.events();
+	}
+
+	BitStreamerv2.prototype = {
+		events : function(e) {
+			var self = this;
+
+			$(this.form).submit(function(e) {
+				if (uploadHandler === null) return false;
+				e.preventDefault();
+				formInputs = $(this.form).find(":input");//.not("[type=file]");
+				formFileInputs = $(this.form).find("[type=file]");
+				return self.init(e);
+			});
+		},
+
+		init : function(e) {
+			var self = this;
+			alert(formInputs);
+			console.log(formFileInputs);
+		}
+	}
+
+})( jQuery );
+
+
 function BitStreamer(urlToHandler, data, size=400000) {
 
 	/****************************
