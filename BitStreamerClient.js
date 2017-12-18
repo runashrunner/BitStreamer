@@ -171,13 +171,13 @@ function BitStreamer(urlToHandler, data, size=400000) {
 		console.log("Setting maxChunkSize to "+size);
 		maxChunkSize = size;
 
-		$('#progress').show(); // Show progress bar. Improvement needed.
+		$('#progress-box').show(); // Show progress bar. Improvement needed.
 
 		console.log("Preparing file upload...");
 
 		console.log("----- Uploading -----")
 
-		$('#filesbox').html(""); // Reset the files box. Improvement needed. Very Basic.
+		$('#bsfilesbox').html(""); // Reset the files box. Improvement needed. Very Basic.
 		/****************************
 		 Loop
 		 ----------------------------
@@ -193,7 +193,7 @@ function BitStreamer(urlToHandler, data, size=400000) {
 			var filesToUpload = formFileInputs[f].files;
 			for(u=0; u<filesToUpload.length; u++) {
 				formFileInputFiles.push(filesToUpload[u]);
-				$('#filesbox').append("<p style='text-align: left; text-transform: uppercase; margin-bottom: 2px; padding-right:0; font-family: arial;'><span id='file"+u+"'>"+filesToUpload[u].name+"</span><span style='float: right;' id='progress-status"+u+"'></span></p><div id='bar_container' style='width: 100%; background-color: #bbb; height: auto; margin-top: 5px; margin-bottom: 10px;'><div id='bar"+u+"' style='height: 5px; font-size: 80%; background-color: #00a300; transition:600ms linear; color:#ffffff; font-family: sans-serif; width: 0px;''></div></div>");
+				$('#bsfilesbox').append("<p style='text-align: left; text-transform: uppercase; margin-bottom: 2px; padding-right:0; font-family: arial;'><span id='file"+u+"'>"+filesToUpload[u].name+"</span><span style='float: right;' id='progress-status"+u+"'></span></p><div id='bar_container' style='width: 100%; background-color: #bbb; height: auto; margin-top: 5px; margin-bottom: 10px;'><div id='bar"+u+"' style='height: 5px; font-size: 80%; background-color: #00a300; transition:600ms linear; color:#ffffff; font-family: sans-serif; width: 0px;''></div></div>");
 				chunksForAllFiles = chunksForAllFiles + Math.ceil(filesToUpload[u].size/maxChunkSize, maxChunkSize);
 				console.log(filesToUpload[u].name);
 			}

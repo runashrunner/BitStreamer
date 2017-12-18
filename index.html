@@ -10,6 +10,8 @@
 			  <meta charset="UTF-8">
 			  <!-- Font Awesome, Mainly for Icons -->
 			  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+			  <!-- BitStreamer CSS -->
+			  <link href="BitStreamer.css" rel="stylesheet" />
 	</head>
 	<body>
 		<h1>BitStreamer File Uploader</h1>
@@ -23,19 +25,25 @@
 			<input type="submit">
 		</form>
 		
-		<div id="progress" style="display: none; width: 306px; height: auto;">
-			<p style="font-size: 80%; text-align: left; margin-top: 2px; padding-right:0; font-family: arial;"><strong>Overall Progress</strong></p>
-			<p id="progress-status" style="font-size: 80%; text-align: right; text-transform: uppercase; margin-bottom: 2px; padding-right:0; font-family: arial;"></p>	
-			<div id="bar_container" style="width: 306px; background-color: #bbb; height: auto;">
-				<div id="bar" style="height: 5px; font-size: 80%; background-color: #00578a; transition:600ms linear; color:#ffffff; font-family: sans-serif; width: 0px;"></div>
+		<div id="progress-box">
+			<!-- Overall Progress Bar -->
+			<h2>Overall Progress</h2>
+			<p id="progress-status"></p>	
+			<div id="bar-container" style="">
+				<div id="bar"></div>
 			</div>
 
-			<!-- Really Badly Styled Up Progress Bar, but is a POC -->
-			<p style="font-size: 80%; text-align: right; margin-top: 2px; padding-right:0; font-family: arial;"><a id="pause" href="#" style="display: none; text-decoration: none; color: #444;"><i class="fa fa-pause"></i> Pause</a><a  style="display: none; color: #444; text-decoration: none;" id="resume" href="#"><i class="fa fa-play"></i> Resume</a></p>
-			<p style="font-size: 80%; text-align: left; margin-top: 2px; padding-right:0; font-family: arial;"><strong>Uploading</strong></p>
-			<p id="filesbox" style="font-size: 80%; text-align: left; height:250px; overflow: auto; margin-top: 2px; padding-right:0; padding: 10px; border: 1px solid #444; font-family: arial;"></p>
+			<!-- Controls for the Uploader -->
+			<p id="bscontrols">
+				<a id="pause" href="#"><i class="fa fa-pause"></i> Pause</a>
+				<a id="resume" href="#"><i class="fa fa-play"></i> Resume</a>
+			</p>
+
+			<!-- A box with individual file statuses. -->
+			<h2>Uploading</h2>
+			<p id="bsfilesbox"></p>
 		</div>
-		</div>
+
 		<script src="BitStreamerClient.js" type="text/javascript"></script>
 		<script>
 			// When form submits it will call the function below.

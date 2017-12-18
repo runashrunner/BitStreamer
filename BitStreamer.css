@@ -1,0 +1,63 @@
+#progress-box {
+	display: none; 
+	width: 306px; 
+	height: auto;
+}
+
+#progress-box h2 {
+	font-size: 80%; 
+	text-align: left; 
+	margin-top: 2px; 
+	padding-right:0; 
+	font-family: arial;
+}
+
+#progress-status {
+	font-size: 80%; 
+	text-align: right; 
+	text-transform: uppercase; 
+	margin-bottom: 2px; 
+	padding-right:0; 
+	font-family: arial;
+}
+
+#bar-container {
+	width: 306px; 
+	background-color: #bbb; 
+	height: auto;
+}
+
+#bscontrols {
+	font-size: 80%; 
+	text-align: right; 
+	margin-top: 2px; 
+	padding-right:0; 
+	font-family: arial;
+}
+
+#bscontrols a{
+	display: none; 
+	text-decoration: none; 
+	color: #444;
+}
+
+#bsfilesbox {
+	font-size: 80%; 
+	text-align: left; 
+	height:250px; 
+	overflow: auto; 
+	margin-top: 2px; 
+	padding-right:0; 
+	padding: 10px; 
+	border: 1px solid #444; 
+	font-family: arial;
+}
+
+#bar {
+	height: 5px; 
+	font-size: 80%; 
+	background-color: #00578a; 
+	transition:600ms linear; 
+	color:#ffffff; 
+	width: 0px;
+}
