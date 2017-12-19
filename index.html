@@ -55,32 +55,7 @@
 				pauseButtonID: 'bspause',
 				resumeButtonID: 'bsresume'
 			});
-			// When form submits it will call the function below.
-			/*$("form").submit(function(e){
-				// This prevents normal events from happening.
-                e.preventDefault();
-
-                //Create a new bitstreamer instance.
-           		var BS = new BitStreamer('BitStreamerServer.php', $("form"), 10000000);
-           		//Tell it to submit.
-                BS.submitUploadForm();
-
-                // On Click Trigger pause Function.
-
-                $( "#pause" ).bind({
-				  click: function() {
-				  	BS.pauseFileUpload()
-				  }
-				});
-
-                // On Click Trigger Resume Function.
-				$( "#resume" ).bind({
-				  click: function() {
-				  	BS.resumeFileUpload()
-				  }
-				});
-                
-            });*/
+			
 		</script>
 	</body>
 </html>
