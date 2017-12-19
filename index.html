@@ -20,6 +20,7 @@
 		<form method="post" enctype="multipart/form-data">
 		<div>
 			<p>Select File(s):</p>
+			<input type="text" name="text_field" />
 			<input type="file" name="alottafiles" multiple />
 		</div>
 			<input type="submit">
@@ -35,8 +36,8 @@
 
 			<!-- Controls for the Uploader -->
 			<p id="bscontrols">
-				<a id="pause" href="#"><i class="fa fa-pause"></i> Pause</a>
-				<a id="resume" href="#"><i class="fa fa-play"></i> Resume</a>
+				<a id="bspause" href="#"><i class="fa fa-pause"></i> Pause</a>
+				<a id="bsresume" href="#"><i class="fa fa-play"></i> Resume</a>
 			</p>
 
 			<!-- A box with individual file statuses. -->
@@ -49,7 +50,10 @@
 
 			$('form').BitStreamer({
 				maxChunkSize: 10000000,
-				uploadHandler: 'BitStreamerServer.php'
+				uploadHandler: 'BitStreamerServer.php',
+				successCallback: 'http://google.com',
+				pauseButtonID: 'bspause',
+				resumeButtonID: 'bsresume'
 			});
 			// When form submits it will call the function below.
 			/*$("form").submit(function(e){
